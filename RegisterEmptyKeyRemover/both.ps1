@@ -20,7 +20,7 @@ function Test-InstalledPrograms6 {
 #      \/
     $asd = Get-ItemProperty "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | Select-Object DisplayName , PSChildName, InstallSource, PSPath
     foreach ($dsa in $asd){
-        if ($dsa.InstallSource -eq '' -or $dsa.InstallSource -eq "*" -or $dsa.InstallSource -eq "*:" -or $dsa.InstallSource -eq "*:\"){
+        if ($dsa.InstallSource -eq '' -or $dsa.InstallSource -eq "C" -or $dsa.InstallSource -eq "C:" -or $dsa.InstallSource -eq "C:\"){
             Write-Host "================ PUSTY INSTALL SOURCE WOGOLE BEZ SCIERZKI ================" -ForegroundColor Yellow
             Write-Host "nie wykryto scierzki w InstallSource w kluczu o nazwie: $($dsa.PSChildName)" -ForegroundColor Red
             Write-Host "==========================================================================" -ForegroundColor Yellow
